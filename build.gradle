@@ -1,0 +1,25 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath libs.android.gradle.plugin
+        classpath libs.kotlin.gradle.plugin
+        classpath libs.ktlint.gradle
+    }
+}
+
+allprojects {
+    apply plugin: "org.jlleitschuh.gradle.ktlint"
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
